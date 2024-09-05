@@ -1,0 +1,165 @@
+/* Define CSS variables for a consistent design */
+:root {
+    --main-bg-color: #f9f9f9;
+    --main-text-color: #333;
+    --primary-color: #ff0000;
+    --secondary-color: #ccc;
+    --hover-color: #e6e6e6;
+    --font-family: 'Poppins', sans-serif;
+    --transition-speed: 0.3s;
+}
+
+/* General reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-family);
+}
+
+/* Global link styling */
+a {
+    text-decoration: none;
+    color: var(--main-text-color);
+}
+
+/* Image styling */
+img {
+    cursor: pointer;
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Flexbox utility class */
+.flex-div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Navbar styling */
+nav {
+    padding: 10px 2%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background: var(--main-bg-color);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+/* Navbar right icons */
+.nav-right img {
+    width: 30px;
+    margin-right: 20px;
+    transition: filter var(--transition-speed);
+}
+
+.nav-right img:hover {
+    filter: brightness(0.8);
+}
+
+/* User icon styling */
+.nav-right .user-icon {
+    width: 40px;
+    border-radius: 50%;
+}
+
+/* Navbar left icons */
+.nav-left .menu-icon {
+    width: 28px;
+    margin-right: 25px;
+}
+
+.nav-left .logo {
+    width: 150px;
+}
+
+/* Search box and icons */
+.nav-middle .mic-icon {
+    width: 20px;
+    margin-left: 10px;
+}
+
+.nav-middle .search-box {
+    border: 1px solid var(--secondary-color);
+    padding: 10px 15px;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+}
+
+.nav-middle .search-box input {
+    width: 500px;
+    border: none;
+    outline: none;
+    padding-left: 10px;
+    font-size: 18px;
+    color: var(--main-text-color);
+}
+
+.nav-middle .search-box img {
+    width: 24px;
+    cursor: pointer;
+}
+
+/* Sidebar styling */
+.sidebar {
+    width: 300px;
+    background-color: var(--main-bg-color);
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: -300px;
+    transition: left var(--transition-speed);
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar.small-sidebar {
+    left: 0;
+}
+
+/* Container styling */
+.container {
+    margin-left: 300px;
+    transition: margin-left var(--transition-speed);
+}
+
+.container.large-container {
+    margin-left: 0;
+}
+
+/* Responsive design */
+@media (max-width: 1200px) {
+    .nav-middle .search-box input {
+        width: 400px;
+    }
+
+    .nav-left .logo {
+        width: 120px;
+    }
+
+    .sidebar {
+        left: -250px;
+    }
+
+    .sidebar.small-sidebar {
+        left: 0;
+    }
+
+    .container {
+        margin-left: 250px;
+    }
+
+    .container.large-container {
+        margin-left: 0;
+    }
+}
+
+/* Search box focus effect */
+.nav-middle .search-box input:focus {
+    border-color: var(--primary-color);
+    background-color: var(--hover-color);
+    transition: background-color var(--transition-speed), border-color var(--transition-speed);
+}
